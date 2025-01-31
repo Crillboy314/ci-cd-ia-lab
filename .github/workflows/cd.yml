@@ -33,8 +33,11 @@ jobs:
       - name: Mostrar contenido de Dockerfile
         run: cat Dockerfile
 
-      - name: Construir y subir imagen Docker
+      - name: Construir y subir imagen Docker a Artifact Registry
         run: |
-          docker build --no-cache --progress=plain -t gcr.io/${{ secrets.GCP_PROJECT_ID }}/ci-cd-ia:latest .
-          docker push gcr.io/${{ secrets.GCP_PROJECT_ID }}/ci-cd-ia:latest
+          gcloud artifacts repositories create ci-cd-ia-repo --location=us-central1 --repository-format=DOCKER || true
+          gcloud auth configure-docker us-central1-docker.pkg.dev
+          docker build --progress=plain -t us-central1-docker.pkg.dev/${{ secrets.GCP_PROJECT_ID }}/ci-cd-ia-repo/ci-cd-ia:latest .
+          docker push us-central1-docker.pkg.dev/${{ secrets.GCP_PROJECT_ID }}/ci-cd-ia-repo/ci-cd-ia:latest
+
 
