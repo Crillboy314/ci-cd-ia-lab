@@ -35,5 +35,6 @@ jobs:
 
       - name: Construir y subir imagen Docker
         run: |
-          docker build --progress=plain -t gcr.io/${{ secrets.GCP_PROJECT_ID }}/ci-cd-ia:latest .
+          docker build --no-cache --progress=plain -t gcr.io/${{ secrets.GCP_PROJECT_ID }}/ci-cd-ia:latest .
           docker push gcr.io/${{ secrets.GCP_PROJECT_ID }}/ci-cd-ia:latest
+
