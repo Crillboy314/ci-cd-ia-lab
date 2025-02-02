@@ -1,11 +1,1 @@
-FROM python:3.9
-
-WORKDIR /app
-
-COPY requirements.txt requirements.txt
-RUN pip install -r requirements.txt
-
-COPY . .
-
-CMD ["gunicorn", "--bind", "0.0.0.0:8080", "app.app:app"]
-
+剆䵏瀠瑹潨㩮⸳ਹ圊剏䑋剉⼠灡ੰ䌊偏⁙敲畱物浥湥獴琮瑸爠煥極敲敭瑮⹳硴ੴ啒⁎楰⁰湩瑳污⁬爭爠煥極敲敭瑮⹳硴ੴ䌊偏⁙‮ਮ䌊䑍嬠朢湵捩牯≮‬ⴢ戭湩≤‬〢〮〮〮㠺㠰∰‬愢灰愮灰愺灰崢ਊ
