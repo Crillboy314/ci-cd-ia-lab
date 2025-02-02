@@ -21,10 +21,11 @@ jobs:
       - name: Configurar Docker para Google Artifact Registry
         run: gcloud auth configure-docker us-docker.pkg.dev
 
-      - name: Construir y subir imagen Docker a Artifact Registry
+      - name: Construir y subir imagen Docker sin caché
         run: |
-          docker build -t us-docker.pkg.dev/laboratorioia-449403/my-docker-repo/ci-cd-ia:latest .
-          docker push us-docker.pkg.dev/laboratorioia-449403/my-docker-repo/ci-cd-ia:latest
+          docker build --no-cache --progress=plain -t gcr.io/${{ secrets.GCP_PROJECT_ID }}/ci-cd-ia:latest .
+          docker push gcr.io/${{ secrets.GCP_PROJECT_ID }}/ci-cd-ia:latest
+
 
       - name: Desplegar en Cloud Run
         run: |

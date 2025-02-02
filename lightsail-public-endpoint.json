@@ -1,0 +1,11 @@
+{
+    "containerName": "app",
+    "containerPort": 8080,
+    "healthCheck": {
+      "healthyThreshold": 2,
+      "unhealthyThreshold": 2,
+      "timeoutSeconds": 2,
+      "intervalSeconds": 5
+    }
+  }
+  

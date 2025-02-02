@@ -1,0 +1,9 @@
+{
+    "app": {
+      "image": "ci-cd-ia:latest",
+      "ports": {
+        "8080": "HTTP"
+      }
+    }
+  }
+  
