@@ -22,11 +22,10 @@ jobs:
 
       - name: Install Lightsail CLI plugin
         run: |
-          sudo apt-get update && sudo apt-get install -y unzip
-          curl -L https://lightsail-downloads.s3.amazonaws.com/lsctl/lsctl-linux-amd64.zip -o lsctl.zip
-          unzip lsctl.zip
-          chmod +x lsctl
-          sudo mv lsctl /usr/local/bin/lightsailctl
+          sudo apt-get update && sudo apt-get install -y curl
+          sudo curl -L "https://s3.us-west-2.amazonaws.com/lightsailctl/latest/linux-amd64/lightsailctl" -o /usr/local/bin/lightsailctl
+          sudo chmod +x /usr/local/bin/lightsailctl
+        
         
 
       - name: Build Docker image
