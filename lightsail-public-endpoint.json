@@ -1,6 +1,6 @@
 {
   "containerName": "app",
-  "containerPort": 8080,
+  "containerPort": 5000,
   "healthCheck": {
     "healthyThreshold": 3,
     "unhealthyThreshold": 2,
